@@ -3,11 +3,11 @@ import dummybook from "../dummybooks/dummyBooks";
 import books from "../dummybooks/dummyBooks";
 
 const dummybooks = JSON.parse(localStorage.getItem("books"));
-()=>{
-  if(dummybooks.length <= 0){
+(function(){
+  if ( !dummybooks){
      localStorage.setItem("books", JSON.stringify(dummybook));
   }
-}
+})()
 const initialState = {
   books: dummybooks,
   value: 0,
