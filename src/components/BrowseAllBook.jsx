@@ -85,7 +85,7 @@ function BrowseAllBook() {
             />
             <button
               onClick={handleSearch}
-              className="md:h-9 sm:h-7 cursor-pointer outline-none bg-[#00ff22] px-7 rounded-r-md nedborder font-bold md:text-lg sm:text-sm"
+              className="h-9  cursor-pointer outline-none bg-[#00ff22] px-7 rounded-r-md nedborder font-bold md:text-lg sm:text-sm"
             >
               Search
             </button>

@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="newborder z-50 w-screen sm:h-12 md:h-15 fixed top-0 flex items-center justify-between bg-[#f5eded] shadow-sm">
+      <nav className="newborder z-50 w-screen h-15 fixed top-0 flex items-center justify-between bg-[#f5eded] shadow-sm">
         <div className="flex items-center justify-start text-3xl font-bold text-gray-600 sm:px-1 md:px-4 py-0.5">
           <div className="sm:w-screen md:w-[20vw] flex justify-between items-center">
             <div className=" flex justify-center items-center">
