@@ -81,7 +81,7 @@ function BrowseAllBook() {
               value={searchtext}
               onChange={(e) => setSearchtext(e.target.value)}
               placeholder="Enter  title or author"
-              className="font-semibold outline-none  sm:text-sm md:text-md  text-gray-500 rounded-l-md newborder md:w-[50vw] sm:w-[65vw] md:h-9 sm:h-7 px-2.5"
+              className="font-semibold outline-none  sm:text-sm md:text-md  text-gray-500 rounded-l-md newborder md:w-[50vw] sm:w-[65vw] h-9 px-2.5"
             />
             <button
               onClick={handleSearch}
