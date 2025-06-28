@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dummybook from "../dummybooks/dummyBooks";
 import books from "../dummybooks/dummyBooks";
- localStorage.setItem("books", JSON.stringify(dummybook));
-const dummybooks = JSON.parse(localStorage.getItem("books"));
 
+const dummybooks = JSON.parse(localStorage.getItem("books"));
+()=>{
+  if(dummybooks.length <= 0){
+     localStorage.setItem("books", JSON.stringify(dummybook));
+  }
+}
 const initialState = {
   books: dummybooks,
   value: 0,
