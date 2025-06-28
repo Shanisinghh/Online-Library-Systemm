@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { data, Link, useParams } from "react-router-dom";
 // import dummybooks from "../dummybooks/dummyBooks";
 import { IoMdArrowRoundBack } from "react-icons/io";
+
 import { useSelector } from "react-redux";
+
 function BookDetail() {
   const dummyBooks = useSelector((state) => state.books.books);
+
   const { id } = useParams();
   console.log(id);
-  console.log("bookdata",dummyBooks);
+  console.log("bookdata", dummyBooks);
   const book = dummyBooks.filter((book) => book.id === id)[0];
 
   console.log(book);
@@ -15,11 +18,11 @@ function BookDetail() {
   return (
     <>
       <div className="mt-17">
-        <Link to="/BrowseBooks">
+        <Link to="/">
           <button className="flex ml-2 justify-center items-center text-md font-semibold px-4 rounded-md pt-0.5 pb-1 bg-[#413d3d] text-white hover:bg-[#1a1919]">
             {" "}
             <IoMdArrowRoundBack className="text-xl mr-1 " />
-            Back To browse Books
+            Back To Home
           </button>
         </Link>
         <div className=" flex justify-center items-center">

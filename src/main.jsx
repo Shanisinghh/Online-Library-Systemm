@@ -8,22 +8,19 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./components/Home.jsx";
 import AddBook from "./components/AddBook.jsx";
-import Book from "./components/Book.jsx";
 import { store } from "./redux/store.js";
 import { Provider } from "react-redux";
-
 import BookDetail from "./components/BookDetail.jsx";
 import BrowseAllBook from "./components/BrowseAllBook.jsx";
 import NotFound from "./components/NotFound.jsx";
-
+import DeleteBook from "./components/DeleteBook.jsx";
 const pathprovider = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />} errorElement={<NotFound />}>
-      <Route path="" element={<Home />} />
+      <Route path="" element={<BrowseAllBook />} />
       <Route path="/addbook" element={<AddBook />} />
-      <Route path="/BrowseBooks" element={<BrowseAllBook />} />
+      <Route path="/deletebook" element={<DeleteBook />} />
       <Route path="/bookdetail/:id" element={<BookDetail />} />
     </Route>
   )

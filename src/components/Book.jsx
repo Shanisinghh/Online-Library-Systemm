@@ -15,7 +15,7 @@ function Book({book}) {
       </div>
         <Link to={`/bookdetail/${book.id}`} >
       <div className=' text-center py-1  bg-[#3290e7] hover:bg-[rgb(39,48,128)] rounded-b-md'>
-        <button className='cursor-pointer font-semibold relative bottom-0 text-gray-100 '> View details</button>
+        <button className='cursor-pointer w-full font-semibold relative bottom-0 text-gray-100 '> View details</button>
       </div>
          </Link>
      </div>

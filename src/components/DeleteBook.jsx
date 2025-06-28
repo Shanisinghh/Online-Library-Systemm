@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+
+
+import React, { useState ,useEffect} from "react";
 import { useSelector } from "react-redux";
 import { categories } from "../dummybooks/dummyBooks";
-//  const dummyBook =  JSON.parse(localStorage.getItem("books"))
-import Book from "./Book";
+import BookDelete from "./BookDelete";
 
-function BrowseAllBook() {
+function DeleteBook() {
   const dummyBooks = useSelector((state) => state.books.books);
 
-  console.log("object", dummyBooks);
+  console.log(dummyBooks)
+
   const [searchtext, setSearchtext] = useState();
   const [books, setBooks] = useState([]);
   const [category, setcategory] = useState();
@@ -58,14 +60,14 @@ function BrowseAllBook() {
                 className="text-center md:w-[20%]  hover:bg-[rgb(255,102,0)] "
               >
                 <h2 className="text-sm  cursor-pointer py-2  font-semibold  text-gray-700">
-                  {category}
+                  {category} 
                 </h2>
               </div>
             ))}
           </div>
           <div className="flex flex-wrap pb-2.5 justify-center gap-3.5">
             {books.map((book) => (
-              <Book key={book.id} book={book} />
+              <BookDelete key={book.id} book={book} />
             ))}
           </div>
         </div>
@@ -105,7 +107,7 @@ function BrowseAllBook() {
           </div>
           <div className="flex flex-wrap justify-center pb-2.5 gap-3.5">
             {allBooks.map((book) => (
-              <Book key={book.id} book={book} />
+              <BookDelete key={book.id} id ={book.id} book={book} />
             ))}
           </div>
         </div>
@@ -114,4 +116,14 @@ function BrowseAllBook() {
   }
 }
 
-export default BrowseAllBook;
+export default DeleteBook
+
+
+
+
+
+
+
+
+
+

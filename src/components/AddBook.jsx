@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { addBook } from "../features/bookSlice";
-
+import books from "../dummybooks/dummyBooks";
+//  const dummyBooks =  JSON.parse(localStorage.getItem("books"))
 function AddBook() {
-  
-    const dispatch = useDispatch()
-    const id = Math.floor(Math.random()*10000000000)
+  const dummyBooks = useSelector((state) => state.books.books);
+
+  const dispatch = useDispatch();
+  const id = Math.floor(Math.random() * 10000000000);
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -17,41 +19,52 @@ function AddBook() {
     category: "",
     coverImage: "",
   });
+
+  localStorage.setItem("books", JSON.stringify(dummyBooks));
+
   console.log(formData);
   const handleChange = (e) => {
     const { name, value } = e.target;
-   
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-    
   };
- function handleClick (){
-  if(formData.title==""||formData.author==""||formData.description==""||formData.rating==""||formData.category==""||formData.coverImage==""){
-    alert("Please Fill All Book Detail")
-  }else{
-   dispatch(addBook(formData))
+  function handleClick() {
+    if (
+      formData.title == "" ||
+      formData.author == "" ||
+      formData.description == "" ||
+      formData.rating == "" ||
+      formData.category == "" ||
+      formData.coverImage == ""
+    ) {
+      alert("Please Fill All Book Detail");
+    } else {
+      dispatch(addBook(formData));
+    }
   }
-  
-  
- }
   const handleSubmit = (e) => {
     e.preventDefault();
-  //    if(formData.title==""||formData.author==""||formData.description==""||formData.rating==""||formData.category==""||formData.coverImage==""){
-  //   alert("Please Fill All Book Detail")
-  // }else{
-  // //  dispatch(addBook(formData))
-  // }
-
+    //    if(formData.title==""||formData.author==""||formData.description==""||formData.rating==""||formData.category==""||formData.coverImage==""){
+    //   alert("Please Fill All Book Detail")
+    // }else{
+    // //  dispatch(addBook(formData))
+    // }
   };
 
   return (
     <>
       <div className="mt-17">
-        <form onSubmit={handleSubmit} className="md:w-[40vw] sm:w-[95vw]  newborder p-4 rounded-md flex flex-col justify-center m-auto space-y-2.5">
+        <form
+          onSubmit={handleSubmit}
+          className="md:w-[40vw] sm:w-[95vw]  newborder p-4 rounded-md flex flex-col justify-center m-auto space-y-2.5"
+        >
           {/* Title */}
-          <h1 className="text-center text-gray-600 text-2xl font-bold">Fill Book Details</h1>
+          <h1 className="text-center text-gray-600 text-2xl font-bold">
+            Fill Book Details
+          </h1>
           <div className="">
             <label className="block font-medium mb-1">Title</label>
             <input
@@ -144,16 +157,15 @@ function AddBook() {
           </div>
 
           {/* Submit */}
-             <Link to="/BrowseBooks">
-          <button
-            type="submit"
-            onClick={handleClick}
-            className="w-full bg-blue-600 text-white font-semibold py-1 rounded hover:bg-blue-700 transition duration-200"
-          >
-            Add Book
-          </button>
+          <Link to="/">
+            <button
+              type="submit"
+              onClick={handleClick}
+              className="w-full bg-blue-600 text-white font-semibold py-1 rounded hover:bg-blue-700 transition duration-200"
+            >
+              Add Book
+            </button>
           </Link>
-      
         </form>
       </div>
     </>

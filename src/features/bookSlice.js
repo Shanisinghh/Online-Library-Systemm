@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import dummybooks from "../dummybooks/dummyBooks";
+// import dummybooks from "../dummybooks/dummyBooks";
 import books from "../dummybooks/dummyBooks";
+const dummybooks = JSON.parse(localStorage.getItem("books"));
 
 const initialState = {
-
   books: dummybooks,
   value: 0,
 };
@@ -16,10 +16,14 @@ export const bookSlice = createSlice({
     addBook: (state, action) => {
       state.books.unshift(action.payload);
     },
-   
+    deletebook: (state, action) => {
+      state.books = state.books.filter((book) => book.id !== action.payload);
+      console.log(state.books);
+      localStorage.setItem("books", JSON.stringify(state.books));
+    },
   },
 });
 
-export const { addBook, } = bookSlice.actions;
+export const { addBook, deletebook } = bookSlice.actions;
 
 export default bookSlice.reducer;
